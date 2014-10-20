@@ -8,17 +8,36 @@
 <body>
 
 <div ng-app="" ng-controller="quoteController">
-	<p ng-bind="display"></p>
+	<p ng-bind="quote"></p>
+	<p ng-bind="author"></p>
 	<input type="button" value="Next" ng-click="getRandom()" />
 </div>
 
 <script>
 function quoteController($scope) {
-	$scope.quote = ""
-	$scope.author = ""
-	$scope.quotes = ["first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth"]
+	$scope.quotes = [{
+		quote: "first",
+		author: "second"
+	},
+	{
+		quote: "third",
+		author: "fourth"
+	},
+	{	quote: "fifth",
+		author: "sixth"
+	},
+	{
+		quote: "seventh",
+		author: "eighth"
+	},
+	{
+		quote: "ninth",
+		author: "tenth"
+	}]
 	$scope.getRandom = function() {
-		$scope.display = $scope.quotes[Math.floor((Math.random() * $scope.quotes.length))]
+		var index = Math.floor((Math.random() * $scope.quotes.length))
+		$scope.quote = $scope.quotes[index].quote
+		$scope.author = "-" + $scope.quotes[index].author
 	}
 	$scope.getRandom()
 }
