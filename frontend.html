@@ -2,14 +2,17 @@
 <html>
 
 <head>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="style.css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+	<title>A page of quotes</title>
 </head>
 
 <body>
 
-<div ng-app="" ng-controller="quoteController">
-	<p ng-bind="quote"></p>
-	<p ng-bind="author"></p>
+<div id="appContainer" ng-app="" ng-controller="quoteController">
+	<p id="quote" ng-bind="quote"></p>
+	<p id="author" ng-bind="author"></p>
 	<input type="button" value="Next" ng-click="getRandom()" />
 </div>
 

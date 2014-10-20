@@ -1,7 +1,7 @@
 {
-  "name": "node-js-getting-started",
+  "name": "quotes",
   "version": "0.1.2",
-  "description": "A sample Node.js app using Express 4",
+  "description": "A Node.js app that displays random quotes",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/heroku/node-js-getting-started"
+    "url": "https://github.com/DocV/quotes"
   },
   "keywords": [
     "node",

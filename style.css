@@ -1,0 +1,13 @@
+body {
+	background-color: #F0F0F0;
+}
+#appContainer{
+	color: #606060;
+	text-align: center;
+}
+#quote {
+	font-size: 3em;
+}
+#author {
+	font-size: 2em;
+}
