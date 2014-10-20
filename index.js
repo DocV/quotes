@@ -8,6 +8,7 @@ app.use(express.static(__dirname + '/public'))
 var indexpage
 var quoteController
 var style
+var quotes
 
 app.get('/', function(request, response) {
 	
@@ -15,12 +16,17 @@ app.get('/', function(request, response) {
 })
 
 app.get('/quoteController.js', function(request, response) {
+  response.type("application/javascript")
   response.send(quoteController)
 })
 
 app.get('/style.css', function(request, response) {
   response.type("text/css")
   response.send(style)
+})
+
+app.get('/quotes.json', function(request, response) {
+  response.send(quotes)
 })
 
 app.listen(app.get('port'), function() {
@@ -35,6 +41,10 @@ app.listen(app.get('port'), function() {
   fs.readFile('style.css', 'utf-8', function (err, data) {
 		if (err) indexpage = "Error reading style sheet: " + err;
 		else style = data
+  })
+  fs.readFile('quotes.json', 'utf-8', function (err, data) {
+		if (err) indexpage = "Error reading JSON data: " + err;
+		else quotes = data
   })
   console.log("Node app is running at localhost:" + app.get('port'))
   
