@@ -1,22 +1,22 @@
 [
     {
-        "quote": "first",
+        "content": "first",
         "author": "second"
     },
     {
-        "quote": "third",
+        "content": "third",
         "author": "fourth"
     },
     {
-        "quote": "fifth",
+        "content": "fifth",
         "author": "sixth"
     },
     {
-        "quote": "seventh",
+        "content": "seventh",
         "author": "eighth"
     },
     {
-        "quote": "ninth",
+        "content": "ninth",
         "author": "tenth"
     }
 ]

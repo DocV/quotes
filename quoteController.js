@@ -3,7 +3,7 @@ function quoteController($scope, $http) {
 		$scope.quotes = res.data
 		$scope.getRandom = function() {
 			var index = Math.floor((Math.random() * $scope.quotes.length))
-			$scope.quote = $scope.quotes[index].quote
+			$scope.quote = $scope.quotes[index].content
 			$scope.author = "-" + $scope.quotes[index].author
 		}
 		

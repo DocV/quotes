@@ -1,6 +1,8 @@
 var express = require('express')
+var pg = require('pg')
 var fs = require('fs')
 var app = express();
+
 
 app.set('port', (process.env.PORT || 5000))
 app.use(express.static(__dirname + '/public'))
@@ -42,9 +44,19 @@ app.listen(app.get('port'), function() {
 		if (err) indexpage = "Error reading style sheet: " + err;
 		else style = data
   })
-  fs.readFile('quotes.json', 'utf-8', function (err, data) {
-		if (err) indexpage = "Error reading JSON data: " + err;
-		else quotes = data
+  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+	client.query('SELECT content, author FROM quotes', function (err, result) {
+		done();
+		if (err) {
+		  fs.readFile('quotes.json', 'utf-8', function (err, data) {
+				if (err) indexpage = "Error reading JSON data: " + err;
+				else quotes = data
+		  })
+		}
+		else {
+			quotes = result.rows
+		}
+	})
   })
   console.log("Node app is running at localhost:" + app.get('port'))
   
